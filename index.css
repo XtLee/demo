@@ -1,0 +1,21 @@
+.items {
+  margin: 10px;
+}
+.items .item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+.item:hover {
+  background: #eee;
+}
+.load {
+  border: 2px solid orange;
+  padding: 10px;
+  border-radius: 5px;
+  width: 70px;
+  text-align: center;
+  margin: 0 auto;
+  color: orange;
+  cursor: pointer;
+}
