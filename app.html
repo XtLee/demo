@@ -19,9 +19,9 @@
     var btn = document.getElementById('load')
     var itmes = document.getElementById('items')
     var xhr = new XMLHttpRequest()
+    var isLoading = false
 
     btn.addEventListener('click', function () {
-      var isLoading = true
       if (isLoading) return
       isLoading = false
       xhr.open('GET', '/demo/index.json', true)
