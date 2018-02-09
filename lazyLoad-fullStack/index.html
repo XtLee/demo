@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="items" id="items">
+    <p class="item">数据1</p>
+    <p class="item">数据2</p>
+  </div>
+  <div class="load" id="load">加载更多</div>
+  <script>
+    var btn = document.getElementById('load')
+    var itmes = document.getElementById('items')
+    var curIdx = 3
+    var len = 3
+    var isLoading = false
+
+    btn.addEventListener('click', function () {
+      if (isLoading) return
+      isLoading = true 
+      ajax(
+        '/loadMore',
+        { idx: curIdx, len: len },
+        function(data) {
+          appendData(data)
+          isLoading = false
+          curIdx += len
+        }
+      )
+    })
+
+    function ajax(url, json, onSuccess, onError) {
+      var xhr = new XMLHttpRequest()
+      var arr = []
+      for(var key in json) {
+        arr.push(key + '=' + json[key])
+      }
+      url += '?' + arr.join('&')
+      xhr.open('GET', url)
+      xhr.send()
+
+      xhr.onload = function() {
+        if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+          onSuccess(JSON.parse(this.response))
+        }else {
+          onError && onError()
+        }
+      }
+    }
+    function appendData(data) {
+      for(var i=0;i<data.length;i++) {
+        var newItem = document.createElement('p')
+        newItem.innerHTML = '<p class="item">' + data[i] + '</p>'
+        items.append(newItem) 
+      }
+    }
+  </script>
+</body>
+
+</html>
