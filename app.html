@@ -29,7 +29,7 @@
       if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
         console.log(xhr.responseText)
       } else {
-        throw new Error(error)
+        throw new Error('error')
       }
     })
   </script>
