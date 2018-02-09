@@ -26,6 +26,7 @@
       isLoading = false
       xhr.open('GET', '/demo/index.json', true)
       xhr.send()
+      console.log((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304)
       if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
         console.log(xhr.responseText)
       } else {
