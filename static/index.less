@@ -93,6 +93,8 @@ a {
     padding-top: .3rem;
     padding-bottom: .56rem;
     color: @header-color;
+    position: static;
+    top: 0;
   }
 
   img {
@@ -101,21 +103,17 @@ a {
     height: 1.71rem;
   }
 
-  content {
+  .ui-form {
+    background: @bg;
+  }
+
+  .ui-border-t {
+    border: none;
+  }
+
+  .content {
     width: 100%;
     text-align: center;
-
-    p {
-      border-bottom: 1px solid #ccc;
-      position: relative;
-      width: calc(100% - .4rem);
-      margin: 0 .2rem;
-      margin-top: -.5rem;
-
-      &:nth-child(3) {
-        margin-top: 0;
-      }
-    }
 
     input[type=text] {
       width: 100%;
@@ -124,6 +122,45 @@ a {
       font-size: .26rem;
       outline: none;
       background: @bg;
+      border-bottom: 1px solid #aaa;
+      border-width: thin;
+      border-radius: 0;
+    }
+
+    .agree {        
+      margin: .3rem auto 0 auto;
+      background-image: none;
+
+      .ui-radio {
+        font-size: .26rem;
+        
+        input:checked::after {
+          background: @btn-bg;
+          width: .15rem;
+          height: .15rem;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        input::before {
+          border-color: @btn-bg;
+          width: .26rem;
+          height: .26rem; 
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .input-div {
+      height: auto;
+      margin: 0 .2rem;
+      position: relative;
+      margin-bottom: 3px;
     }
 
     a {
@@ -139,47 +176,6 @@ a {
       right: .52rem;
       bottom: .16rem;
       text-align: center;
-    }
-
-
-    .agree {
-      border: none;
-      position: inherit;
-      text-align: center;
-      padding-top: .3rem;
-      font-size: .26rem;
-      color: @agree-color;
-      line-height: .26rem;
-    }
-
-    input[type=radio] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      width: .26rem;
-      height: .26rem;
-      margin-right: .1rem;
-      border: 2px solid @btn-bg;
-      border-radius: 50%;
-      outline: none;
-      vertical-align: top;
-      position: relative;
-
-      &::after {
-        content: '';
-        display: none;
-        background: @btn-bg;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        border: 2px solid @bg;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(.6);
-      }
-      &:checked::after {
-        display: block;
-      }
     }
 
     input[type=submit] {

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <title>Document</title>
+  <link rel="stylesheet" href="http://i.gtimg.cn/vipstyle/frozenui/2.0.0/css/frozen.css">
   <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -16,19 +17,25 @@
       快速登录
     </header>
     <img src="https://i.loli.net/2018/03/24/5ab5fe454c7b3.jpg" alt="">
-    <content>
-      <form action="" method="post">
-        <p><input type="text" id="phoneNumber" placeholder="请输入手机号">
+    <div class="ui-form ui-border-t content">
+      <form action="#" method="post">
+        <div class="input-div">
+          <input type="text" placeholder="请输入手机号">
           <a href="sms:13582383434?body=你好">获取验证码</a>
-        </p>
-        <p><input type="text" id="code" placeholder="请输入验证码">
-        </p>
-        <p class="agree">
-          <input type="radio" id="agree">我已同意并阅读《保健用户协议》
-        </p>
-        <input type="submit" value="登录">
+          </a>
+      </div>   
+      <div class="input-div">
+        <input type="text" placeholder="请输入验证码">
+    </div> 
+        <div class="ui-form-item ui-form-item-radio ui-border-b agree">
+          <label class="ui-radio" for="radio">
+              <input type="radio" name="radio">
+              <span>我已同意并阅读《保健用户协议》</span>
+          </label>
+      </div>
+        <input type="submit" class="ui-btn ui-btn-primary" value="登录">
       </form>
-    </content>
+    </div>
   </div>
 
   <script>
