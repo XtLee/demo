@@ -110,7 +110,7 @@ a {
       position: relative;
       width: calc(100% - .4rem);
       margin: 0 .2rem;
-      margin-top: -.51rem;
+      margin-top: -.5rem;
 
       &:nth-child(3) {
         margin-top: 0;
@@ -162,6 +162,7 @@ a {
       border-radius: 50%;
       outline: none;
       vertical-align: top;
+      position: relative;
 
       &::after {
         content: '';
@@ -170,7 +171,11 @@ a {
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        transform: scale(.7);
+        border: 2px solid @bg;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(.6);
       }
       &:checked::after {
         display: block;
